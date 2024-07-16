@@ -1,25 +1,25 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
   const [role, setRole] = useState('student');
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const handleLogin = () => {
     if (role === 'student') {
-      history.push('/student-login');
+      navigate('/student-login');
     } else {
       // Navigate to admin login (assuming you have an admin login route)
-      history.push('/admin-login');
+      navigate('/admin-login');
     }
   };
 
   const handleRegister = () => {
     if (role === 'student') {
-      history.push('/student-register');
+      navigate('/student-register');
     } else {
       // Navigate to admin register (assuming you have an admin register route)
-      history.push('/admin-register');
+      navigate('/admin-register');
     }
   };
 
