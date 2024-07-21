@@ -1,17 +1,18 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Home from './components/Home';
+// import Home from './components/Home';
 import StudentLogin from './components/StudentLogin';
-import StudentRegister from './components/StudentRegister';
+import Registration from './components/Studentregistration';
+
 
 const App = () => {
   return (
     <Router>
       <div className="App">
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/student-login" element={<StudentLogin />} />
-          <Route path="/student-register" element={<StudentRegister />} />
+          {/* <Route path="/" element={<Home />} /> */}
+          <Route path="/" element={<StudentLogin />} />
+          <Route path="/register" element={<Registration />} />
           {/* Add routes for admin login and register if necessary */}
         </Routes>
       </div>
