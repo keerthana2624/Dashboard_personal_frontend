@@ -1,49 +1,72 @@
+/* Container for the programs */
 .programs-container {
     padding: 10px;
-  }
-  
-  .filters {
+}
+
+/* Filters container */
+.filters {
     margin-bottom: 10px;
-  }
-  
-  .program-list {
+    display: flex;
+    gap: 10px; /* Add space between filter elements */
+}
+
+/* Style for the select elements and input */
+.filters select,
+.filters input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Program list container */
+.program-list {
     list-style-type: none;
     padding: 0;
-    display: flex; /* Use flexbox for layout */
+    display: flex;
     flex-wrap: wrap; /* Allow wrapping to the next line */
     gap: 20px; /* Add space between items */
-  }
-  
-  .program-item {
+}
+
+/* Program item styling */
+.program-item {
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 10px;
     overflow: hidden;
     width: calc(33.333% - 20px); /* Three items per row with gap adjustment */
     box-sizing: border-box; /* Include padding and border in element's total width and height */
-  }
-  
-  .program-item img {
+}
+
+/* Image styling */
+.program-image {
     width: 100%; /* Make the image take the full width of its container */
     height: auto; /* Maintain aspect ratio */
     border-radius: 8px;
     display: block;
-  }
-  
-  .program-details {
+}
+
+/* Program details styling */
+.program-details {
     padding: 10px;
-  }
-  
-  .program-details button {
+    display: flex; /* Use flexbox */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+}
+
+/* Apply button styling */
+.program-details button {
     background-color: #007bff;
     color: white;
     border: none;
-    padding: 5px 10px;
-    border-radius: 2px;
+    padding: 10px 20px; /* Increase padding for larger button */
+    border-radius: 4px; /* Slightly larger border radius */
     cursor: pointer;
-  }
-  
-  .program-details button:hover {
+    font-size: 18px; /* Increase font size */
+    margin-top: 10px; /* Space above the button */
+}
+
+.program-details button:hover {
     background-color: #0056b3;
-  }
-  
+}

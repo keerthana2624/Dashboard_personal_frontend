@@ -9,6 +9,7 @@ const Programs = () => {
     duration: '',
     startDate: '',
   });
+  const [uniqueDurations, setUniqueDurations] = useState([]);
 
   useEffect(() => {
     const fetchPrograms = async () => {
@@ -18,6 +19,10 @@ const Programs = () => {
           const data = await response.json();
           setPrograms(data);
           setFilteredPrograms(data);
+
+          // Extract unique durations from the courses data
+          const durations = [...new Set(data.map(program => program.duration))];
+          setUniqueDurations(durations);
         } else {
           console.error('Failed to fetch programs');
         }
@@ -38,7 +43,7 @@ const Programs = () => {
     const filtered = programs.filter(program => {
       return (
         (filters.category ? program.category === filters.category : true) &&
-        (filters.duration ? program.duration === filters.duration : true) &&
+        (filters.duration ? parseInt(program.duration) === parseInt(filters.duration) : true) &&
         (filters.startDate ? new Date(program.start_date) >= new Date(filters.startDate) : true)
       );
     });
@@ -55,20 +60,19 @@ const Programs = () => {
     <div className="programs-container">
       <h2>Available Programs</h2>
       <div className="filters">
-        <input
-          type="text"
-          name="category"
-          placeholder="Category"
-          value={filters.category}
-          onChange={handleFilterChange}
-        />
-        <input
-          type="text"
-          name="duration"
-          placeholder="Duration"
-          value={filters.duration}
-          onChange={handleFilterChange}
-        />
+        <select name="category" value={filters.category} onChange={handleFilterChange}>
+          <option value="">All Categories</option>
+          <option value="Programming">Programming</option>
+          <option value="Data Science">Data Science</option>
+        </select>
+        <select name="duration" value={filters.duration} onChange={handleFilterChange}>
+          <option value="">All Durations</option>
+          {uniqueDurations.map(duration => (
+            <option key={duration} value={duration}>
+              {duration} {duration > 1 ? 'Weeks' : 'Week'}
+            </option>
+          ))}
+        </select>
         <input
           type="date"
           name="startDate"
@@ -83,13 +87,13 @@ const Programs = () => {
               <img
                 src={`http://localhost:5000${program.image_url}`}
                 alt={program.name}
-                style={{ width: '100%', height: 'auto', borderRadius: '8px' }}
+                className="program-image"
               />
             )}
             <div className="program-details">
               <h3>{program.name}</h3>
               <p>Category: {program.category}</p>
-              <p>Duration: {program.duration}</p>
+              <p>Duration: {program.duration} {program.duration > 1 ? 'Weeks' : 'Week'}</p>
               <p>Start Date: {new Date(program.start_date).toLocaleDateString()}</p>
               <button onClick={() => handleApplyClick(program.id)}>Apply</button>
             </div>
