@@ -22,7 +22,7 @@ const StudentLogin = () => {
         const data = await response.json();
         localStorage.setItem('token', data.token);
         alert('Login successful!');
-        navigate('/dashboard');
+        navigate('/programs');
       } else {
         const errorData = await response.json();
         alert(`Login failed: ${errorData.error}`);
@@ -32,6 +32,7 @@ const StudentLogin = () => {
       alert('Login failed. Please try again later.');
     }
   };
+  
   
 
   return (
