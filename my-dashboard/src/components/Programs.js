@@ -83,7 +83,7 @@ const Programs = () => {
               <img
                 src={`http://localhost:5000${program.image_url}`}
                 alt={program.name}
-                style={{ width: '100%', height: 'auto', borderRadius: '8px' }}
+                className="program-image"
               />
             )}
             <div className="program-details">

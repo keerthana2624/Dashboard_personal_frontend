@@ -1,49 +1,45 @@
-.programs-container {
-    padding: 10px;
-  }
-  
-  .filters {
-    margin-bottom: 10px;
-  }
-  
-  .program-list {
-    list-style-type: none;
-    padding: 0;
-    display: flex; /* Use flexbox for layout */
-    flex-wrap: wrap; /* Allow wrapping to the next line */
-    gap: 20px; /* Add space between items */
-  }
-  
-  .program-item {
+/* Styling for each program item */
+.program-item {
     border: 1px solid #ddd;
     border-radius: 8px;
-    padding: 10px;
-    overflow: hidden;
-    width: calc(33.333% - 20px); /* Three items per row with gap adjustment */
-    box-sizing: border-box; /* Include padding and border in element's total width and height */
-  }
-  
-  .program-item img {
-    width: 100%; /* Make the image take the full width of its container */
+    overflow: hidden; /* Ensure contents don’t overflow */
+    width: 600px; /* Fixed width for each item */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    display: flex; /* Align image and details side by side */
+    flex-direction: row; /* Stack image and details horizontally */
+    gap: 20px; /* Space between image and details */
+    align-items: flex-start; /* Align items to the top */
+}
+
+/* Styling for the image inside each program item */
+.program-image {
+    width: 200px; /* Fixed width for image */
     height: auto; /* Maintain aspect ratio */
-    border-radius: 8px;
-    display: block;
-  }
-  
-  .program-details {
+    object-fit: cover; /* Crop image to cover the area */
+    border-radius: 4px; /* Rounded corners for images */
+}
+
+/* Styling for the details section of each program item */
+.program-details {
     padding: 10px;
-  }
-  
-  .program-details button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 2px;
-    cursor: pointer;
-  }
-  
-  .program-details button:hover {
-    background-color: #0056b3;
-  }
-  
+    width: 100%; /* Ensure details section takes full width */
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+/* Styling for the Apply button */
+.program-details button {
+    background-color: #007bff; /* Blue background */
+    color: white; /* White text */
+    border: none; /* Remove default border */
+    padding: 10px 20px; /* Padding for button */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 16px; /* Font size */
+    display: block; /* Make button block-level for centering */
+    margin: 10px auto; /* Center button horizontally and add vertical margin */
+}
+
+/* Styling for the Apply button on hover */
+.program-details button:hover {
+    background-color: #0056b3; /* Darker blue background */
+}
