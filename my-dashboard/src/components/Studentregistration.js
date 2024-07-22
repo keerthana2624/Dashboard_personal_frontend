@@ -1,8 +1,7 @@
-// src/components/Registration.js
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-const Registration = () => {
+const Studentregistration = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
@@ -23,7 +22,8 @@ const Registration = () => {
         alert('Registration successful!');
         navigate('/login');
       } else {
-        alert('Registration failed. Please try again.');
+        const errorData = await response.json();
+        alert(`Registration failed: ${errorData.error}`);
       }
     } catch (error) {
       console.error('Error registering:', error);
@@ -54,4 +54,4 @@ const Registration = () => {
   );
 };
 
-export default Registration;
+export default Studentregistration;

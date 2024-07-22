@@ -1,40 +1,38 @@
-
-// src/components/Login.js
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-// import Userlayout from './Layout';
-// import './Login.css';
 
-const Login = () => {
+const StudentLogin = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     const formData = { email, password };
-
+  
     try {
       const response = await fetch('http://localhost:5000/api/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       });
-
+  
       if (response.ok) {
         const data = await response.json();
         localStorage.setItem('token', data.token);
         alert('Login successful!');
         navigate('/dashboard');
       } else {
-        alert('Login failed. Please check your credentials.');
+        const errorData = await response.json();
+        alert(`Login failed: ${errorData.error}`);
       }
     } catch (error) {
       console.error('Error logging in:', error);
       alert('Login failed. Please try again later.');
     }
   };
+  
 
   return (
     <div className="registration-container">
@@ -59,4 +57,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default StudentLogin;
