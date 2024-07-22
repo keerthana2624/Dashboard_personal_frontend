@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-
+import './Programs.css'; // Import the CSS file
 
 const Programs = () => {
   const [programs, setPrograms] = useState([]);
