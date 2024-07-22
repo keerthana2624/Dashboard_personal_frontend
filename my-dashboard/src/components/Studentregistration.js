@@ -1,44 +1,40 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-const StudentLogin = () => {
+const Studentregistration = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     const formData = { email, password };
-  
+
     try {
-      const response = await fetch('http://localhost:5000/api/login', {
+      const response = await fetch('http://localhost:5000/api/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       });
-  
+
       if (response.ok) {
-        const data = await response.json();
-        localStorage.setItem('token', data.token);
-        alert('Login successful!');
-        navigate('/programs');
+        alert('Registration successful!');
+        navigate('/login');
       } else {
         const errorData = await response.json();
-        alert(`Login failed: ${errorData.error}`);
+        alert(`Registration failed: ${errorData.error}`);
       }
     } catch (error) {
-      console.error('Error logging in:', error);
-      alert('Login failed. Please try again later.');
+      console.error('Error registering:', error);
+      alert('Registration failed. Please try again later.');
     }
   };
-  
-  
 
   return (
     <div className="registration-container">
       <div className="registration-card">
-        <h2>Login Form</h2>
+        <h2>Registration Form</h2>
         <form className="registration-form" onSubmit={handleSubmit}>
           <div className="form-group">
             <label htmlFor="email">Email</label>
@@ -48,14 +44,14 @@ const StudentLogin = () => {
             <label htmlFor="password">Password</label>
             <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
           </div>
-          <button type="submit">Login</button>
+          <button type="submit">Register</button>
         </form>
         <p className="login-helper-text">
-          Don't have an account? <Link to="/register">Register here</Link>
+          Already have an account? <Link to="/login">Login here</Link>
         </p>
       </div>
     </div>
   );
 };
 
-export default StudentLogin;
+export default Studentregistration;
