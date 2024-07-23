@@ -1,5 +1,7 @@
+// src/components/Programs.js
 import React, { useEffect, useState } from 'react';
-import './Programs.css'; // Import the CSS file
+import { useNavigate } from 'react-router-dom';
+import './Programs.css';
 
 const Programs = () => {
   const [programs, setPrograms] = useState([]);
@@ -10,6 +12,7 @@ const Programs = () => {
     startDate: '',
   });
   const [uniqueDurations, setUniqueDurations] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchPrograms = async () => {
@@ -20,7 +23,6 @@ const Programs = () => {
           setPrograms(data);
           setFilteredPrograms(data);
 
-          // Extract unique durations from the courses data
           const durations = [...new Set(data.map(program => program.duration))];
           setUniqueDurations(durations);
         } else {
@@ -51,9 +53,8 @@ const Programs = () => {
     setFilteredPrograms(filtered);
   }, [filters, programs]);
 
-  const handleApplyClick = (courseId) => {
-    // Handle the apply action here
-    console.log(`Applied for course with ID: ${courseId}`);
+  const handleApplyClick = (course) => {
+    navigate('/apply', { state: { course } });
   };
 
   return (
@@ -95,7 +96,7 @@ const Programs = () => {
               <p>Category: {program.category}</p>
               <p>Duration: {program.duration} {program.duration > 1 ? 'Weeks' : 'Week'}</p>
               <p>Start Date: {new Date(program.start_date).toLocaleDateString()}</p>
-              <button onClick={() => handleApplyClick(program.id)}>Apply</button>
+              <button onClick={() => handleApplyClick(program)}>Apply</button>
             </div>
           </li>
         ))}
