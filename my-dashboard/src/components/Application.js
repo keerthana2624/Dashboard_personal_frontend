@@ -30,7 +30,7 @@ const Application = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          courseId: course.id,
+          courseId: course?.id,
           ...applicationData,
         }),
       });
@@ -44,6 +44,7 @@ const Application = () => {
           statementOfPurpose: '',
           applicantEmail: '',
         });
+        
       } else {
         const result = await response.json();
         setErrorMessage(result.error || 'Failed to submit application.');
