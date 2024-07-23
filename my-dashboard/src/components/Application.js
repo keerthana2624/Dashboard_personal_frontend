@@ -1,6 +1,7 @@
 // src/components/Application.js
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import './Application.css';  // Import the CSS file
 
 const Application = () => {
   const location = useLocation();
