@@ -20,7 +20,7 @@ const AdminLogin = () => {
       });
       if (response.ok) {
         const result = await response.json();
-        navigate('/admin/dashboard'); // Redirect to admin dashboard
+        navigate('/admin-dashboard'); // Redirect to admin dashboard
       } else {
         const result = await response.json();
         setErrorMessage(result.error || 'Failed to login.');
