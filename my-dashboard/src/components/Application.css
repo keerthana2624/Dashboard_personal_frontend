@@ -78,12 +78,12 @@
   }
   
   .application-form .confirmation-message h3 {
-    color:  rgb(255, 0, 0);
+    color:   #28a745; /* Green for success */
     font-size: 20px; /* Larger font size for confirmation */
   }
   
   .application-form .confirmation-message p {
     font-size: 16px;
-    color:  rgb(255, 0, 0);
+    color:  #28a745; /* Green for success */
   }
   
