@@ -21,7 +21,7 @@ const StudentLogin = () => {
       if (response.ok) {
         const data = await response.json();
         localStorage.setItem('token', data.token);
-        alert('Login successful!');
+        localStorage.setItem('email', email); // Store the email
         navigate('/programs');
       } else {
         const errorData = await response.json();
@@ -33,7 +33,7 @@ const StudentLogin = () => {
     }
   };
   
-  
+  // empty commit
 
   return (
     <div className="registration-container">

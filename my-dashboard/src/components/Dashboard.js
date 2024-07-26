@@ -7,8 +7,12 @@ const Dashboard = () => {
 
   useEffect(() => {
     const fetchApplications = async () => {
+        const email = localStorage.getItem('email'); // Get the stored email
+        console.log(email);
       try {
-        const response = await fetch('http://localhost:5000/api/applications');
+        const response = await fetch('http://localhost:5000/api/applications', {
+            headers: { 'x-student-email': email } // Send the email in request headers
+          });
         if (response.ok) {
           const data = await response.json();
           setApplications(data);
