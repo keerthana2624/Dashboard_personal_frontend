@@ -1,7 +1,5 @@
-
-// src/components/Dashboard.js
 import React, { useEffect, useState } from 'react';
-import './Dashboard.css'; // You can create a CSS file for styling
+import './Dashboard.css'; // Make sure to update your CSS file
 
 const Dashboard = () => {
   const [applications, setApplications] = useState([]);
@@ -15,12 +13,12 @@ const Dashboard = () => {
 
   useEffect(() => {
     const fetchApplications = async () => {
-        const email = localStorage.getItem('email'); // Get the stored email
-        console.log(email);
+      const email = localStorage.getItem('email');
+      console.log(email);
       try {
         const response = await fetch('http://localhost:5000/api/applications', {
-            headers: { 'x-student-email': email } // Send the email in request headers
-          });
+          headers: { 'x-student-email': email }
+        });
         if (response.ok) {
           const data = await response.json();
           setApplications(data);
@@ -35,7 +33,6 @@ const Dashboard = () => {
     fetchApplications();
   }, []);
 
-
   const handlePayment = async () => {
     if (!selectedApplication) return;
 
@@ -47,9 +44,9 @@ const Dashboard = () => {
       return;
     }
 
-    // Here, instead of processing payments, just simulate payment confirmation
+    // Simulate payment confirmation
     alert('Payment processed successfully!');
-    // Optionally, you might want to update the application status or redirect the user
+    // Optionally, update the application status or redirect the user
   };
 
   const handleInputChange = (e) => {
@@ -60,32 +57,50 @@ const Dashboard = () => {
     }));
   };
 
+  const approvedApplications = applications.filter(app => app.status === 'approved');
+  const rejectedApplications = applications.filter(app => app.status === 'rejected');
 
   return (
     <div className="dashboard-container">
       <h2>Applications Dashboard</h2>
-      <ul className="application-list">
-        {applications.map((application) => (
-          <li key={application.id} className="application-item">
-            <div className="application-details">
-              <h3>{application.course_name}</h3>
-              <p>Status: {application.status}</p>
-              {application.status === 'approved' ? (
-                <button onClick={() => setSelectedApplication(application)}>
-                  Proceed to Payment
-                </button>
-              ) : (
-                <p>Application Rejected</p>
-              )}
-            </div>
-          </li>
-        ))}
-      </ul>
+
+      <div className="application-lists">
+        <div className="approved-applications">
+          <h3>Approved Applications</h3>
+          <ul>
+            {approvedApplications.map((application) => (
+              <li key={application.id} className="application-item">
+                <div className="application-details">
+                  <h4 className="course-name">{application.course_name}</h4>
+                  <p className="status"><strong>Status:</strong> {application.status}</p>
+                  <button onClick={() => setSelectedApplication(application)}>
+                    Proceed to Payment
+                  </button>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="rejected-applications">
+          <h3>Rejected Applications</h3>
+          <ul>
+            {rejectedApplications.map((application) => (
+              <li key={application.id} className="application-item">
+                <div className="application-details">
+                  <h4 className="course-name">{application.course_name}</h4>
+                  <p className="status"><strong>Status:</strong> {application.status}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
 
       {selectedApplication && (
         <div className="payment-section">
           <h3>Payment Section</h3>
-          <div>
+          <div className="payment-options">
             <label>
               <input
                 type="radio"
@@ -107,7 +122,7 @@ const Dashboard = () => {
               Payment Plan
             </label>
           </div>
-          <div>
+          <div className="payment-details">
             <label>
               Card Number:
               <input
@@ -136,7 +151,7 @@ const Dashboard = () => {
               />
             </label>
           </div>
-          <button onClick={handlePayment}>Submit Payment</button>
+          <button onClick={handlePayment} className="submit-payment">Submit Payment</button>
         </div>
       )}
     </div>
@@ -144,4 +159,3 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
-

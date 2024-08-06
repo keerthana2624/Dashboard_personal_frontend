@@ -1,5 +1,3 @@
-
-
 import React, { useState, useEffect } from 'react';
 import './AdminDashboard.css'; // Import CSS file for styling
 
@@ -59,12 +57,24 @@ const AdminDashboard = () => {
       <div className="applications-list">
         {applications.map(application => (
           <div key={application.id} className="application-card">
-            <p>Email: {application.applicant_email}</p>
-            <p>Personal Details: {application.personal_details}</p>
-            <p>Educational Background: {application.educational_background}</p>
-            <p>Statement of Purpose: {application.statement_of_purpose}</p>
-            <button onClick={() => handleApplication(application.id, application.applicant_email, 'approve')}>Approve</button>
-            <button onClick={() => handleApplication(application.id, application.applicant_email, 'reject')}>Reject</button>
+            <p><span>Email:</span> {application.applicant_email}</p>
+            <p><span>Personal Details:</span> {application.personal_details}</p>
+            <p><span>Educational Background:</span> {application.educational_background}</p>
+            <p><span>Statement of Purpose:</span> {application.statement_of_purpose}</p>
+            <div className="buttons-container">
+              <button 
+                className="approve-button" 
+                onClick={() => handleApplication(application.id, application.applicant_email, 'approve')}
+              >
+                Approve
+              </button>
+              <button 
+                className="reject-button" 
+                onClick={() => handleApplication(application.id, application.applicant_email, 'reject')}
+              >
+                Reject
+              </button>
+            </div>
           </div>
         ))}
       </div>
@@ -73,4 +83,3 @@ const AdminDashboard = () => {
 };
 
 export default AdminDashboard;
-

@@ -9,18 +9,18 @@ body, html {
   margin: 0;
   padding: 0;
   height: 100%;
-  background-color: #f4f4f4;
+  background-color: #f0f2f5;
 }
 
-.admin-login-container {
+.registration-container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #f4f4f4;
+  background-color: #f0f2f5;
 }
 
-.admin-login-form {
+.registration-card {
   background: white;
   padding: 30px;
   border-radius: 10px;
@@ -30,18 +30,18 @@ body, html {
   transition: all 0.3s ease;
 }
 
-.admin-login-form:hover {
+.registration-card:hover {
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 
-.admin-login-form h3 {
+h2 {
   margin-bottom: 20px;
   text-align: center;
   color: #333;
   font-weight: 600;
 }
 
-.form-group {
+.registration-form .form-group {
   margin-bottom: 20px;
 }
 
@@ -83,9 +83,17 @@ button:hover {
   background-color: #0056b3;
 }
 
-.error-message {
-  color: red;
-  margin-top: 10px;
+.login-helper-text {
+  margin-top: 15px;
   text-align: center;
-  font-weight: 500;
+  color: #555;
+}
+
+.login-helper-text a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.login-helper-text a:hover {
+  text-decoration: underline;
 }
