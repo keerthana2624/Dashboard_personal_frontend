@@ -20,7 +20,7 @@ const Studentregistration = () => {
 
       if (response.ok) {
         alert('Registration successful!');
-        navigate('/login');
+        navigate('/Student-Login');
       } else {
         const errorData = await response.json();
         alert(`Registration failed: ${errorData.error}`);
@@ -47,7 +47,7 @@ const Studentregistration = () => {
           <button type="submit">Register</button>
         </form>
         <p className="login-helper-text">
-          Already have an account? <Link to="/login">Login here</Link>
+          Already have an account? <Link to="/Student-Login">Login here</Link>
         </p>
       </div>
     </div>

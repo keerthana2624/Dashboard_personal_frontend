@@ -1,72 +1,129 @@
-/* Container for the programs */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+* {
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
 .programs-container {
-    padding: 10px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-/* Filters container */
+h2 {
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 1cm; /* Set margin to 1 cm for the gap */
+  color: #2c3e50;
+}
+
+.dashboard-button {
+  display: inline-block;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-bottom: 1cm; /* Set margin to 1 cm for consistent spacing */
+}
+
+.dashboard-button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
 .filters {
-    margin-bottom: 10px;
-    display: flex;
-    gap: 10px; /* Add space between filter elements */
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-bottom: 30px;
+  margin-top: 1cm; /* Add a 1 cm gap before the filters */
 }
 
-/* Style for the select elements and input */
 .filters select,
 .filters input {
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    box-sizing: border-box;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
 }
 
-/* Program list container */
 .program-list {
-    list-style-type: none;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap; /* Allow wrapping to the next line */
-    gap: 20px; /* Add space between items */
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
 }
 
-/* Program item styling */
 .program-item {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 10px;
-    overflow: hidden;
-    width: calc(33.333% - 20px); /* Three items per row with gap adjustment */
-    box-sizing: border-box; /* Include padding and border in element's total width and height */
+  background-color: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 300px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Image styling */
+.program-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
 .program-image {
-    width: 100%; /* Make the image take the full width of its container */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 8px;
-    display: block;
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  display: block;
 }
 
-/* Program details styling */
 .program-details {
-    padding: 10px;
-    display: flex; /* Use flexbox */
-    flex-direction: column; /* Stack items vertically */
-    align-items: center; /* Center items horizontally */
+  padding: 15px;
+  text-align: center;
 }
 
-/* Apply button styling */
+.program-details h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 10px 0;
+  color: #333;
+}
+
+.program-details p {
+  font-size: 14px;
+  color: #777;
+  margin: 5px 0;
+}
+
 .program-details button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 20px; /* Increase padding for larger button */
-    border-radius: 4px; /* Slightly larger border radius */
-    cursor: pointer;
-    font-size: 18px; /* Increase font size */
-    margin-top: 10px; /* Space above the button */
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 15px;
+  transition: background-color 0.3s ease;
 }
 
 .program-details button:hover {
-    background-color: #0056b3;
+  background-color: #0056b3;
 }

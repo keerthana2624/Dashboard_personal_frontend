@@ -1,59 +1,105 @@
-
-
 .dashboard-container {
-    padding: 20px;
-    background-color: #f4f4f4;
-    border-radius: 8px;
-    max-width: 1200px;
-    margin: auto;
-  }
-  
-  .dashboard-container h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #333333;
-  }
-  
-  .application-list {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .application-item {
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    margin-bottom: 15px;
-    padding: 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .application-details {
-    flex: 1;
-  }
-  
-  .application-details h3 {
-    margin: 0;
-    color: #333;
-  }
-  
-  .application-details p {
-    margin: 5px 0;
-    color: #666;
-  }
-  
-  .application-item button {
-    background-color: #007bff;
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .application-item button:hover {
-    background-color: #0056b3;
-  }
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 8px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.dashboard-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333333;
+}
+
+.application-lists {
+  display: flex;
+  justify-content: space-between;
+}
+
+.approved-applications, .rejected-applications {
+  width: 48%;
+}
+
+.approved-applications h3, .rejected-applications h3 {
+  color: #333;
+}
+
+.application-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.application-item {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  padding: 15px;
+}
+
+.application-details {
+  width: 100%;
+}
+
+.course-name {
+  margin: 0;
+  color: #333;
+  font-weight: bold;
+}
+
+.status {
+  margin: 5px 0;
+  color: #666;
+}
+
+.rejected .status {
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+.application-item button {
+  background-color: #007bff;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.application-item button:hover {
+  background-color: #0056b3;
+}
+
+.payment-section {
+  margin-top: 20px;
+  padding: 15px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.payment-options label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.payment-details label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.submit-payment {
+  background-color: #28a745;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-payment:hover {
+  background-color: #218838;
+}
